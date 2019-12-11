@@ -10,7 +10,7 @@ require __DIR__ . '/libs/Router.php';
 include "vendor/autoload.php";
 
 
-Router::run('/', function () {
+Router::get('/', function () {
     $controller = new Controller();
 
     $controller->view('login');

@@ -29,24 +29,24 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Fonts -->
 
     <!--begin::Page Custom Styles(used by this page) -->
-    <link href="assets/css/pages/login/login-1.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/pages/login/login-1.css" rel="stylesheet" type="text/css"/>
 
     <!--end::Page Custom Styles -->
 
     <!--begin::Global Theme Styles(used by all pages) -->
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
 
     <!--end::Global Theme Styles -->
 
     <!--begin::Layout Skins(used by all pages) -->
-    <link href="assets/css/skins/header/base/light.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/skins/header/menu/light.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/skins/brand/dark.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/skins/aside/dark.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/skins/header/base/light.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/skins/header/menu/light.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/skins/brand/dark.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/skins/aside/dark.css" rel="stylesheet" type="text/css"/>
 
     <!--end::Layout Skins -->
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico"/>
+    <link rel="shortcut icon" href="../assets/media/logos/favicon.ico"/>
 </head>
 
 <!-- end::Head -->
@@ -61,10 +61,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
             <!--begin::Aside-->
             <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
-                 style="background-image: url(assets/media/bg/bg-4.jpg);">
+                 style="background-image: url(../assets/media/bg/bg-4.jpg);">
                 <div class="kt-grid__item">
                     <a href="#" class="kt-login__logo">
-                        <img src="assets/media/logos/logo-4.png">
+                        <img src="../assets/media/logos/logo-4.png">
                     </a>
                 </div>
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
@@ -111,7 +111,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
 
                         <!--begin::Form-->
-                        <form class="kt-form" action="" novalidate="novalidate" id="kt_login_form">
+                        <form class="kt-form" action="/login" method="POST">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Username" name="username"
                                        autocomplete="off">
@@ -126,7 +126,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <a href="#" class="kt-link kt-login__link-forgot">
                                     Forgot Password ?
                                 </a>
-                                <button id="kt_login_signin_submit"
+                                <button
                                         class="btn btn-primary btn-elevate kt-login__btn-primary">Sign In
                                 </button>
                             </div>
@@ -214,13 +214,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Global Config -->
 
 <!--begin::Global Theme Bundle(used by all pages) -->
-<script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
-<script src="assets/js/scripts.bundle.js" type="text/javascript"></script>
+<script src="../assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
+<script src="../assets/js/scripts.bundle.js" type="text/javascript"></script>
 
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Scripts(used by this page) -->
-<script src="assets/js/pages/custom/login/login-1.js" type="text/javascript"></script>
+<script src="../assets/js/pages/custom/login/login-1.js" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
 </body>

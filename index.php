@@ -3,7 +3,9 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 require __DIR__ . '/libs/Controller.php';
 require __DIR__ . '/libs/Router.php';
@@ -17,8 +19,19 @@ Router::get('/', function () {
 
     $client = new Client();
     $controller = new Controller();
+
+    if (!isset($_SESSION['token'])) {
+        $controller->view('login');
+        die();
+    }
+
     try {
-        $client->get('127.0.0.1:8080');
+        $statusCode = $client->get('127.0.0.1:8080',
+            ['headers' =>
+                [
+                    'Authorization' => "Bearer {$_SESSION['token']}"
+                ]])->getStatusCode();
+
     } catch (GuzzleHttp\Exception\ClientException $e) {
         $response = $e->getResponse();
         $statusCode = $response->getStatusCode();
@@ -45,24 +58,28 @@ Router::post('/login', function () {
                 'password' => $password
             ]
         ]);
+        $token = str_replace("\"", '', $response->getBody());
+
+        $_SESSION['token'] = $token;
+
+        header("Location: /");
 
 
-       echo $response->getBody();
     } catch (GuzzleHttp\Exception\ClientException $e) {
         $response = $e->getResponse();
-        $statusCode = $response->getStatusCode();
+        $body = $response->getBody();
 
-        echo $response->getBody();
+        if (!isset($body->error)) {
+            header("Location: /");
+        } else {
+            echo $body->error;
+        }
     }
-
 
 
 });
 
-
-
-
-//Router::run('/uyeler', 'uyeler@index');
-//Route::run('/uyeler', 'uyeler@post', 'post');
-//Route::run('/uye/{url}', 'uye@index');
-//Route::run('/profil/sifre-degistir', 'profile/changepassword@index');
+Router::get('/logout', function () {
+    session_destroy();
+    header('Location: /');
+});

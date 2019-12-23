@@ -83,3 +83,8 @@ Router::get('/logout', function () {
     session_destroy();
     header('Location: /');
 });
+
+Router::get('/talep-yonetimi', function () {
+    $controller = new Controller();
+    $controller->view('talep_yonetimi');
+});
